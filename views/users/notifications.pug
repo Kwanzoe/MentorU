@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Notifications
+    style
+      include ../assets/css/notifications.css
+
+  body
+    h1 Notifications
+
+    .container
+      each notification in notifications
+        .card
+          .card-content
+            h2 #{notification.title}
+            p #{notification.description}
+          .card-actions
+            div.button-group  
+              a.button(href=`/mentor/jobProceed?clientEmail=${notification.clientEmail}`) Accept Job Request
+              form(action="/mentor/jobReject" method="POST")
+                input(type="hidden" name="clientEmail" value=notification.clientEmail)
+                button.button.reject(type="submit") Reject Job Request

@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Home Feed
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css", rel="stylesheet")
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css')
+    link(href="style.css", rel="stylesheet")
+    style
+      include ../assets/css/navbar.css
+  body
+    include navbar.pug
+    main.container
+      h1 Welcome, #{user.fullname}!
+      hr
+      .row
+        each service in services
+          .col-md-6.mb-4
+            form(method="GET" action="/jobrequest")
+              .card
+                .card-body
+                  h5.card-title  #{service.occupation} MENTOR
+                  p.card-text Skills: #{service.skills}
+                  p.card-text Mentor Name: #{service.fullname}
+                  p.card-text Language spoken: #{service.languages}
+                  p.card-text Price: ₹ #{service.cost}/hr
+                .card-footer
+                  input(type="hidden" name="skills" value=service.skills)
+                  input(type="hidden" name="occupation" value=service.occupation)
+                  input(type="hidden" name="fullname" value=service.fullname)
+                  input(type="hidden" name="languages" value=service.languages)
+                  input(type="hidden" name="cost" value=service.cost)
+                  input(type="hidden" name="email" value=service.email)
+                  button.btn.btn-primary(type="submit") Purchase

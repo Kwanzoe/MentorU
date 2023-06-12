@@ -1,0 +1,144 @@
+html
+  head
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css')
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC", crossorigin="anonymous")
+    style
+        include ../assets/css/navbar.css
+    style.
+      /* Add the CSS styles here */
+      /* Add the CSS styles here */
+        /* Add the CSS styles here */
+        body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #555555, #222222);
+        font-family: Arial, sans-serif;
+        }
+
+        .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        }
+
+        .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+        }
+
+        .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        }
+
+        h2 {
+        font-size: 20px;
+        margin: 10px 0;
+        }
+
+        p {
+        font-size: 14px;
+        margin: 0;
+        }
+
+        .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        }
+
+        .button {
+        padding: 6px;
+        border-radius: 4px;
+        background-color: #4caf50;
+        color: #fff;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        }
+
+        .button:hover {
+        background-color: #45a049;
+        color: #fff;
+        text-decoration: none; /* Remove underline */
+      }
+      .button:focus {
+        outline: none; /* Remove blue link outline on focus */
+      }
+      .non-editable {
+        cursor: default;
+        pointer-events: none;
+      }
+  body
+    include navbar.pug
+
+    form(method="GET")
+    div.container
+      div
+        div.container
+          div
+            div.card
+              div.cardContent
+                div
+                  div 
+                    img.avatar(src="https://winaero.com/blog/wp-content/uploads/2017/12/User-icon-256-blue.png", alt="osama")
+                  div
+                    h2 #{mentorData.fullname}
+                    p #{profileData.occupation}
+              div.cardActions.button-container
+                  a.button(href="/mentor/edit") EDIT
+        div.container
+          div
+            div.card
+              div.cardContent
+                div
+                  div
+                    p Name:
+                    p #{mentorData.fullname}
+                hr
+                div
+                  div
+                    p Email:
+                    p #{mentorData.email}
+                hr
+                div
+                  div
+                    p Number:
+                    p #{mentorData.number}
+          div
+            div.card
+              div.cardContent
+                div
+                  div
+                    p Description:
+                    p #{profileData.description}
+            div.card
+              div.cardContent
+                div
+                  div
+                    p Skills:
+                    p #{profileData.skills}
+            div.card
+              div.cardContent
+                div
+                  div
+                    p Languages:
+                    p #{profileData.languages}
+            div.card
+              div.cardContent
+                div
+                  div
+                    p Cost:
+                    p ₹ #{profileData.cost} per hour
+  script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", crossorigin="anonymous")
+  

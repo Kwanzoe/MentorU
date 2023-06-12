@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title My Resume
+    style 
+      include ../assets/css/professionalDetails.css
+  body
+    h1 Add Professional Details
+    form(action=router, method="POST")
+
+      input(type="hidden" name="email" value=mentor.email)
+      input(type="hidden" name="fullname" value=mentor.fullname)
+      //- fullname added by parthiv
+
+      label(for="occupation") Occupation:
+      textarea#occupation(name="occupation", rows="4", cols="50")
+
+      label(for="skills") Skills:
+      input#skills(name="skills", type="text")
+
+      label(for="languages") Languages:
+      input#languages(name="languages", type="text")
+
+      label(for="description") Description:
+      input#description(name="description", type="text")
+
+      //- cost added by parthiv
+
+      label(for="cost") Cost:
+      input#cost(name="cost", type="number")
+
+      input(type="submit", value="Save")

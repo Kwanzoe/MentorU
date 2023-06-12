@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Notifications
+    style 
+      include ../assets/css/notifications.css
+    script.
+      function confirmFinishSession(form) {
+        if (confirm("Are you sure you want to finish the session? It will remove it from your notifications")) {
+          form.submit();
+        } else {
+          // Cancel action
+        }
+      }
+  body
+    h1 Notifications
+
+    .container
+      each notification in notifications
+        .card
+          .card-content
+            h2 #{notification.title}
+            p #{notification.description}
+          .card-actions
+            div.button-group 
+              a.button(href=`/view-link?link=${notification.link}`) View Link
+              form(action="/finish-session" method="POST" onsubmit="return false;")
+                input(type="hidden" name="link" value=notification.link)
+                button.button.reject(type="button" onclick="confirmFinishSession(this.form)") Finish session

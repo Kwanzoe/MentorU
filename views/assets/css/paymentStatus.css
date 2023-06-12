@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #f1f1f1, #222222);
+}
+  
+  .loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .message {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .message h1 {
+    font-size: 24px;
+    color: #fff;
+  }
+  
+  .message p {
+    font-size: 18px;
+    color: #ccc;
+  }
+  
+  .message h2 {
+    font-size: 20px;
+    color: #aaa;
+    margin-top: 10px;
+  }
+  
